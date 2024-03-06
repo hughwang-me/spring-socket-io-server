@@ -2,6 +2,7 @@ package com.uwjx.socketio.socketio.listeners;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.listener.ConnectListener;
+import com.uwjx.socketio.SocketIOUtil;
 import com.uwjx.socketio.socketio.ISocketManager;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ public class ISocketIOConnectListener implements ConnectListener {
 
     @Override
     public void onConnect(SocketIOClient client) {
-        log.warn("新设备建立连接 : {}" , client);
+        log.warn("新设备建立连接 : {}" , SocketIOUtil.getId(client));
         socketManager.addClient(client);
     }
 }

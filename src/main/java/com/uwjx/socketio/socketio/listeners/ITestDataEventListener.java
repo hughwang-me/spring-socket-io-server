@@ -14,5 +14,6 @@ public class ITestDataEventListener implements DataListener<String> {
     @Override
     public void onData(SocketIOClient client, String data, AckRequest ackSender) throws Exception {
         log.warn("处理 ITestDataEventListener : {}" , data);
+        ackSender.sendAckData("ok");
     }
 }

@@ -1,14 +1,13 @@
 package com.uwjx.socketio.controller;
 
 import com.corundumstudio.socketio.SocketIOClient;
+import com.uwjx.socketio.domain.ISocketIOEvent;
 import com.uwjx.socketio.service.ISocketIOService;
 import com.uwjx.socketio.socketio.ISocketManager;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +20,8 @@ public class SocketIOController {
 
     @Resource
     ISocketManager socketManager;
+    @Resource
+    ISocketIOService socketIOService;
 
     @GetMapping(value = "listClients")
     public Map<String , UUID> listClients(){
@@ -29,5 +30,17 @@ public class SocketIOController {
             map.put(item , client.getSessionId());
         });
         return map;
+    }
+
+    @PostMapping(value = "sendEvent")
+    public String sendEvent(@RequestBody ISocketIOEvent event){
+        socketIOService.sendEvent(event);
+        return "ok";
+    }
+
+    @GetMapping(value = "printClients")
+    public String printClients(){
+        socketManager.printClientMap();
+        return "ok";
     }
 }
