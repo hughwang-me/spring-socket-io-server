@@ -1,0 +1,8 @@
+server:
+  port: 8090
+socketio:
+  enable: true
+  hostname: localhost
+  port: 8092
+  maxFramePayloadLength: 1024000
+  maxHttpContentLength: 1024000
