@@ -12,7 +12,8 @@ import java.time.LocalDate;
 public class FirstSocketIOClient {
 
     public static void main(String[] args) {
-        String url = "http://localhost:8091";
+//        String url = "http://localhost:8091";
+        String url = "http://192.168.90.149:12451";
         log.warn("URL ->{}", url);
         try {
             IO.Options options = new IO.Options();
