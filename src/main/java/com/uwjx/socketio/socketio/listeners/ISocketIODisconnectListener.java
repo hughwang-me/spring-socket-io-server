@@ -2,7 +2,7 @@ package com.uwjx.socketio.socketio.listeners;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.listener.DisconnectListener;
-import com.uwjx.socketio.SocketIOUtil;
+import com.uwjx.socketio.util.SocketIOUtil;
 import com.uwjx.socketio.socketio.ISocketManager;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

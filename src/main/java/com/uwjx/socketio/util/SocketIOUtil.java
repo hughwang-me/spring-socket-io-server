@@ -1,4 +1,4 @@
-package com.uwjx.socketio;
+package com.uwjx.socketio.util;
 
 import com.corundumstudio.socketio.SocketIOClient;
 import org.springframework.util.CollectionUtils;

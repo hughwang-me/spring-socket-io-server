@@ -1,12 +1,11 @@
 package com.uwjx.socketio.socketio;
 
 import com.corundumstudio.socketio.SocketIOClient;
-import com.uwjx.socketio.SocketIOUtil;
+import com.uwjx.socketio.util.SocketIOUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Component
