@@ -38,7 +38,7 @@ public class ISocketIOServiceImpl implements ISocketIOService , InitializingBean
 
     @Override
     public void sendEvent(ISocketIOEvent event) {
-        log.warn("发送数据 : {}" , event);
+        log.warn("发送 event 数据 : {}" , event);
         SocketIOClient client = socketManager.getClientById(event.getClientId());
         log.warn("client isChannelOpen : {}" , client.isChannelOpen());
         log.warn("client isWritable : {}" , client.isWritable());
@@ -46,6 +46,13 @@ public class ISocketIOServiceImpl implements ISocketIOService , InitializingBean
             client.sendEvent(event.getEvent(), event.getContent());
         }
 
+    }
+
+    @Override
+    public void joinRoom(String id, String room) {
+        log.warn(" {} 加入房间  {}" , id , room);
+        SocketIOClient client = socketManager.getClientById(id);
+        client.joinRoom(room);
     }
 
     @Override

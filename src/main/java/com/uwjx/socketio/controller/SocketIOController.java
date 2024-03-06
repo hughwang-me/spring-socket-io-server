@@ -24,23 +24,29 @@ public class SocketIOController {
     ISocketIOService socketIOService;
 
     @GetMapping(value = "listClients")
-    public Map<String , UUID> listClients(){
-        Map<String  , UUID> map = new HashMap<>();
-        socketManager.getClientMap().forEach((item , client) ->{
-            map.put(item , client.getSessionId());
+    public Map<String, UUID> listClients() {
+        Map<String, UUID> map = new HashMap<>();
+        socketManager.getClientMap().forEach((item, client) -> {
+            map.put(item, client.getSessionId());
         });
         return map;
     }
 
     @PostMapping(value = "sendEvent")
-    public String sendEvent(@RequestBody ISocketIOEvent event){
+    public String sendEvent(@RequestBody ISocketIOEvent event) {
         socketIOService.sendEvent(event);
         return "ok";
     }
 
-    @GetMapping(value = "printClients")
-    public String printClients(){
-        socketManager.printClientMap();
+    @GetMapping(value = "joinRoom")
+    public String joinRoom(@RequestParam("id") String id, @RequestParam("room") String room) {
+        socketIOService.joinRoom(id , room);
         return "ok";
     }
+
+//    @GetMapping(value = "printClients")
+//    public String printClients() {
+//        socketManager.printClientMap();
+//        return "ok";
+//    }
 }

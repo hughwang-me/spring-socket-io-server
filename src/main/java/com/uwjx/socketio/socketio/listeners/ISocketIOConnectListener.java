@@ -17,7 +17,7 @@ public class ISocketIOConnectListener implements ConnectListener {
 
     @Override
     public void onConnect(SocketIOClient client) {
-        log.warn("新设备建立连接 : {}" , SocketIOUtil.getId(client));
+        log.warn("新设备建立连接 : {}  ip -> {}" , SocketIOUtil.getId(client) , SocketIOUtil.getId(client));
         socketManager.addClient(client);
     }
 }

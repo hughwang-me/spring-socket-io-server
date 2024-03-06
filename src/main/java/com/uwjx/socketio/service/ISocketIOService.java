@@ -9,4 +9,6 @@ public interface ISocketIOService {
     void stopServer();
 
     void sendEvent(ISocketIOEvent event);
+
+    void joinRoom(String id , String room);
 }
